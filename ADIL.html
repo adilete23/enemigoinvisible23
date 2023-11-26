@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,400,600,900">
+    <title>Pasapalabra Adil</title>
+</head>
+<body>
+	<section class="game">
+		<div class="circle-container">
+			<div class="title-container">
+				<p class="title"><img src="img/adil.jpg" width=270></img></p>
+			</div>
+		    <ul class="circle">
+		        <li class="item">A</li>
+		        <li class="item">B</li>
+		        <li class="item">C</li>
+		        <li class="item">D</li>
+		        <li class="item">E</li>
+		        <li class="item">F</li>
+		        <li class="item">G</li>
+		        <li class="item">H</li>
+		        <li class="item">I</li>
+		        <li class="item">J</li>
+		        <li class="item">L</li>
+		        <li class="item">M</li>
+		        <li class="item">N</li>
+				<li class="item">Ñ</li>
+		        <li class="item">O</li>
+		        <li class="item">P</li>
+		        <li class="item">Q</li>
+		        <li class="item">R</li>
+		        <li class="item">S</li>
+		        <li class="item">T</li>
+		        <li class="item">U</li>
+		        <li class="item">V</li>
+		        <li class="item">X</li>
+		        <li class="item">Y</li>
+		        <li class="item">Z</li>
+		    </ul>
+			<ul class="scoreboard">
+				<li id="js--timer" class="timer" href="">300</li>
+				<li id="js--score" class="score" href="">0</li>
+			</ul>
+		</div>
+		<div class="controls-container">
+			<i id="js--close" class="icon-close hidden"></i>
+			<div id="js--ng-controls" class="ng-controls">
+				<p>¿Te atreves a poner a prueba tu vocabulario y rapidez mental? Entonces no te pierdas el Pasapalabra de Adil, el famoso juego que pondrá a prueba si piensas lo que dices o si eres un bocachancla.</p>
+				<p>El juego es para niños, así que no te lo voy a explicar, espabilao.</p>
+				<p>No uses tildes y puedes usar mayúsculas o minúsculas indistintamente. Para confirmar tu palabra, puedes pulsar la tecla ENTER o hacer click en el botón.</p>
+				<p>El objetivo es completar el rosco de letras antes de que se acabe el tiempo.</p>
+				<p>Pero cuidado... por cada fallo tendrás que beber un chupito (sin parar el tiempo).</p>
+				<p>Si se te acaba el tiempo, harás 3 burpees por cada palabra que te falte.</p>
+				<h4>¡Que empiece el Pasapalabra de Adil!</h4>
+				<a id="js--new-game" class="btn"><i class="icon-play"></i>Jugar</a>
+			</div>
+			<div id="js--question-controls" class="question-controls hidden">
+				<span id="js--hint" class="hint"></span>
+				<p id="js--definition" class="definition"></p>
+
+				<input id="js--user-answer" type="text" placeholder="Introduce tu respuesta">
+
+				<a id="js--send" class="btn btn--green" href="#">Enviar</a>
+				<a id="js--pasapalabra" class="btn" href="#">Pasapalabra</a>
+			</div>
+			<div id="js--pa-controls" class="pa-controls hidden">
+				<p id="js--end-title" class="title"></p>
+				<p id="js--end-subtitle" class="subtitle"></p>
+				<a id="js--pa" class="btn" href=""><i class="icon-loop"></i>Jugar de nuevo</a>
+			</div>
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
