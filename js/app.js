@@ -12,22 +12,21 @@ var words = [
 	new Word(7, "H", "Empieza por H:", " La mayoría de personas que te rodean ahora mismo lo son.", "Homosexuales"),
 	new Word(8, "I", "Empieza por I:", " Psicóloga que te aguanta sin motivo aparente.", "Irene"),
 	new Word(9, "J", "Empieza por J:", " Empresa familiar con sede en el paseo del ferrocarril.", "Jardineria El Castell"),
-	new Word(10, "K", "Empieza por K:", " Paréntesis de chocolate. O lo que comías para estar como en la foto. Una sola palabra.", "Kitkat"),
-	new Word(11, "L", "Empieza por L:", " Empresa de la competencia. Mejor precio y calidad.", "Lidl"),
-	new Word(12, "M", "Empieza por M:", " Gentilicio para referirse a tu persona con cariño.", "Moro"),
-	new Word(13, "N", "Empieza por N:", " Arte digital único, vendido como estafa piramidal en la que estás metido.", "NFT"),
-	new Word(14, "O", "Empieza por O:", " Lo que te gusta que te coman.", "Ojete"),
-	new Word(15, "P", "Empieza por P:", " Deporte que practicas con poca gracia, holgazán.", "Padel"),
-	new Word(16, "Q", "Empieza por Q:", " Escribe lo que quieras. Aquí bebes porque sí :)", "adilete23"),
-	new Word(17, "R", "Empieza por R:", " Tu insulto favorito. Persona de pocas luces.", "Retrasao"),
-	new Word(18, "S", "Empieza por S:", " Persona que, contra todo pronóstico, te aguanta un fin de semana entero.", "Silvia"),
-	new Word(19, "T", "Empieza por T:", " Cosa que no haces a partir de las 12.", "Trabajar"),
-	new Word(20, "U", "Empieza por U:", " País de nacimiento de tu mejor amigo.", "Uruguay"),
-	new Word(21, "V", "Empieza por V:", " Persona que vive la vida, según tú, trabajando poco.", "Vividor"),
-	new Word(22, "W", "Empieza por W:", " Persona que vive la vida, según tú, trabajando poco.", "Wambas"),
-	new Word(23, "X", "Empieza por X:", " Palabra más larga con X que conoces, el sustantivo.", "Xenofobia"),
-	new Word(24, "Y", "Empieza por Y:", " Consumidor de drogas.", "Yonki"),
-	new Word(25, "Z", "Empieza por Z:", " Estado del usuario habitual del fentanilo.", "Zombi")
+	new Word(10, "L", "Empieza por L:", " Empresa de la competencia. Mejor precio y calidad.", "Lidl"),
+	new Word(11, "M", "Empieza por M:", " Gentilicio para referirse a tu persona con cariño.", "Moro"),
+	new Word(12, "N", "Empieza por N:", " Arte digital único, vendido como estafa piramidal en la que estás metido.", "NFT"),
+	new Word(13, "O", "Empieza por O:", " Lo que te gusta que te coman.", "Ojete"),
+	new Word(14, "P", "Empieza por P:", " Deporte que practicas con poca gracia, holgazán.", "Padel"),
+	new Word(15, "Q", "Empieza por Q:", " Escribe lo que quieras. Aquí cucharada porque sí :)", "Qué rico!!"),
+	new Word(16, "R", "Empieza por R:", " Tu insulto favorito. Persona de pocas luces.", "Retrasao"),
+	new Word(17, "S", "Empieza por S:", " Persona que, contra todo pronóstico, te aguanta un fin de semana entero.", "Silvia"),
+	new Word(18, "T", "Empieza por T:", " Cosa que no haces a partir de las 12.", "Trabajar"),
+	new Word(19, "U", "Empieza por U:", " País de nacimiento de tu mejor amigo.", "Uruguay"),
+	new Word(20, "V", "Empieza por V:", " Persona que vive la vida, según tú, trabajando poco.", "Vividor"),
+	new Word(21, "W", "Empieza por W:", " Persona que vive la vida, según tú, trabajando poco.", "Wambas"),
+	new Word(22, "X", "Empieza por X:", " Palabra más larga con X que conoces, el sustantivo.", "Xenofobia"),
+	new Word(23, "Y", "Empieza por Y:", " Consumidor de drogas.", "Yonki"),
+	new Word(24, "Z", "Empieza por Z:", " Estado del usuario habitual del fentanilo.", "Zombi")
 ];
 
 // Functions
@@ -58,11 +57,33 @@ function checkAnswer(pos) {
 	} else {
 		words[pos].correct = false;
 		$(".circle .item").eq(words[pos].idNumber).addClass("item--failure");
+		showAnswer(pos)
 	}
 	remainingWords--;
 	$("js--score").html(remainingWords);
 
 	return count++;
+}
+
+function showAnswer(pos){
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	modal.style.display = "block";
+	$("#js--word").html(words[pos].word);
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() { 
+		modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) { 
+			modal.style.display = "none";
+		}
+	}
 }
 
 function pasapalabra(pos) {
@@ -71,7 +92,7 @@ function pasapalabra(pos) {
 
 }
 
-function continuePlaying() {
+function continuePlaying(pasapalabra) {
 	if (count != 25) {
 		$("#js--user-answer").val("");
 		showDefinition(count);
